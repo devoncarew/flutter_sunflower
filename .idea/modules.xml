@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/flutter_sunflower.iml" filepath="$PROJECT_DIR$/.idea/flutter_sunflower.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_sunflower.iml" filepath="$PROJECT_DIR$/flutter_sunflower.iml" />
     </modules>
   </component>
 </project>

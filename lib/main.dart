@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 final double maxSliderValue = 1000.0;
 
 void main() {
-  runApp(new MaterialApp(
-      title: "Flutter Sunflower",
-      routes: {Navigator.defaultRouteName: (_) => new SunflowerDemo()}));
+  runApp(new MaterialApp(title: "Flutter Sunflower", routes: {
+    Navigator.defaultRouteName: (_) => new SunflowerDemo(),
+  }));
 }
 
 class SunflowerDemo extends StatefulWidget {

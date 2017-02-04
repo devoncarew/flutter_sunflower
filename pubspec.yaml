@@ -3,3 +3,5 @@ description: A Flutter version of Sunflower.
 dependencies:
   flutter:
     sdk: flutter
+flutter:
+  uses-material-design: true
