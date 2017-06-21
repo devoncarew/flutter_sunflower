@@ -80,7 +80,7 @@ class SunflowerPainter extends CustomPainter {
       double r = math.sqrt(i) * scaleFactor;
 
       canvas.drawCircle(
-          new Point(
+          new Offset(
               xCenter + r * math.cos(theta), yCenter - r * math.sin(theta)),
           seedRadius,
           paint);
