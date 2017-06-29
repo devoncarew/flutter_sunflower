@@ -32,7 +32,6 @@ class SunflowerState extends State<SunflowerDemo> {
             activeColor: Theme.of(context).canvasColor,
             onChanged: (double value) {
               setState(() {
-                print('value: ${value.toStringAsFixed(2)}');
                 _value = value;
               });
             },
