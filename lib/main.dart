@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
-final double maxSliderValue = 1000.0;
+final double kMaxSliderValue = 1000.0;
 
 void main() {
   runApp(new MaterialApp(title: "Flutter Sunflower", routes: {
@@ -12,41 +12,50 @@ void main() {
 }
 
 class SunflowerDemo extends StatefulWidget {
+  SunflowerDemo();
+
+  factory SunflowerDemo.forDesignTime() {
+    return new SunflowerDemo();
+  }
+
   @override
   SunflowerState createState() => new SunflowerState();
 }
 
 class SunflowerState extends State<SunflowerDemo> {
-  double _value = maxSliderValue * 2 / 3;
+  double _value = kMaxSliderValue * 2 / 3;
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Sunflower"),
-        actions: <Widget>[
-          new Slider(
-            min: 0.0,
-            value: _value,
-            max: maxSliderValue,
-            activeColor: Theme.of(context).canvasColor,
-            onChanged: (double value) {
-              setState(() {
-                _value = value;
-              });
-            },
-          )
-        ],
+        title: new Text("Sunflowers"),
       ),
-      body: new Container(
-        child: new CustomPaint(
-          painter: new SunflowerPainter(
-            color: Colors.orange[500],
-            seeds: _value,
-          ),
-        ),
-        constraints: new BoxConstraints.expand(),
+      body: new Padding(
         padding: const EdgeInsets.all(16.0),
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            new Expanded(
+              child: new CustomPaint(
+                painter: new SunflowerPainter(
+                  color: Colors.orange[500],
+                  seeds: _value,
+                ),
+              ),
+            ),
+            new Slider(
+              min: 0.0,
+              value: _value,
+              max: kMaxSliderValue,
+              onChanged: (double value) {
+                setState(() {
+                  _value = value;
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -63,12 +72,12 @@ class SunflowerPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     double maxDimension = math.min(size.width, size.height);
-    double scaleFactor = (maxDimension / 2.0) / math.sqrt(maxSliderValue);
+    double scaleFactor = (maxDimension / 2.0) / math.sqrt(kMaxSliderValue);
     double seedRadius = scaleFactor * 0.6;
 
     double xCenter = size.width / 2;
     double yCenter = size.height / 2;
-    double tauPhiRatio = (math.PI * 2) / phi;
+    double tauPhiRatio = (math.pi * 2) / phi;
 
     Paint paint = new Paint()
       ..color = color
